@@ -45,4 +45,9 @@ export const ActionButton = styled.button`
   &:focus {
     outline: none;
   }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 `;

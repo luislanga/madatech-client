@@ -10,6 +10,7 @@ import {
 import { GoPencil } from "react-icons/go";
 import { useFetchTasks } from "../../hooks/useFetchTasks";
 import { useDeleteTask } from "../../hooks/useDeleteTask";
+import { useToast } from "../../hooks/useToast";
 
 export const Table = () => {
   const tasks: any = useFetchTasks();
@@ -20,8 +21,13 @@ export const Table = () => {
     alert(`Editing task with ID: ${id}`);
   };
 
-  const handleDeleteClick = (id: string) => {
-    deleteTaskFn(id);
+  const handleDeleteClick = async (id: string) => {
+    try{
+      await deleteTaskFn(id);
+      useToast("Tarefa excluída com sucesso.", "success");
+    } catch (error: any) {
+      useToast("Erro ao excluir tarefa.", "error");
+    }
   };
 
   if (!tasks || !tasks.data) {
