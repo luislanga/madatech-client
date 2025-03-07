@@ -31,10 +31,10 @@ export const Table = () => {
     <TableMain>
       <thead>
         <tr>
-          <TableHeader>Title</TableHeader>
-          <TableHeader>Description</TableHeader>
+          <TableHeader>Título</TableHeader>
+          <TableHeader>Descrição</TableHeader>
           <TableHeader>Status</TableHeader>
-          <TableHeader>Actions</TableHeader>
+          <TableHeader>Ações</TableHeader>
         </tr>
       </thead>
       <tbody>
