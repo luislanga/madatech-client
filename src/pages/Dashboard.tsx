@@ -9,13 +9,15 @@ import { PageTitle } from "./styles";
 export const Dashboard = () => {
   const [isCreateTaskModalOpen, setIsCreateTaskModalOpen] = useState(false);
 
+
   const handleOpenCreateTaskModal = () => {
     setIsCreateTaskModalOpen(true);
   };
-
   const handleCloseCreateTaskModal = () => {
     setIsCreateTaskModalOpen(false);
   };
+
+
   return (
     <>
       <Header />
