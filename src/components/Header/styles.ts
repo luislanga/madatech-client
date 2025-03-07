@@ -10,6 +10,7 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   padding-top: ${({ theme }) => theme.spacing(2)};
   padding-bottom: ${({ theme }) => theme.spacing(2)};
+  margin-bottom: 48px;
 `;
 
 export const Logo = styled.div`

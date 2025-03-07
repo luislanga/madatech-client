@@ -4,6 +4,7 @@ import { Header } from "../components/Header/Header";
 import { Table } from "../components/Table/Table";
 import { WidthContainer } from "../components/WidthContainer/WidthContainer";
 import { Button } from "../components/Button/Button";
+import { PageTitle } from "./styles";
 
 export const Dashboard = () => {
   const [isCreateTaskModalOpen, setIsCreateTaskModalOpen] = useState(false);
@@ -19,7 +20,7 @@ export const Dashboard = () => {
     <>
       <Header />
       <WidthContainer>
-        <h1>Tarefas</h1>
+        <PageTitle>Tarefas</PageTitle>
         <Button onClick={handleOpenCreateTaskModal}>Criar Tarefa</Button>
         <Table />
         {isCreateTaskModalOpen && (
