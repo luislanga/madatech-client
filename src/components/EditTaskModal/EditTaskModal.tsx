@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { GenericModal } from "../GenericModal/GenericModal";
 import { Container, Form, Input, Select } from "./styles";
 import { Button } from "../Button/Button";
@@ -19,8 +19,6 @@ export const EditTaskModal = ({ onClose, currentTask }: EditTaskModalProps) => {
     status: currentTask.task.status,
   });
   const { mutateAsync: editTaskFn, isPending } = useEditTask();
-  const formRef = useRef<HTMLFormElement | null>(null);
-  console.log(currentTask)
 
   const handleInputChange = (
     e:
@@ -33,7 +31,7 @@ export const EditTaskModal = ({ onClose, currentTask }: EditTaskModalProps) => {
 
   const handleSubmit = async () => {
     handleEditTask(
-      currentTask.id,
+      currentTask.task.id,
       formData.title,
       formData.description,
       formData.status,
@@ -50,7 +48,7 @@ export const EditTaskModal = ({ onClose, currentTask }: EditTaskModalProps) => {
     >
       {!isPending ? (
         <Container>
-          <Form ref={formRef}>
+          <Form>
             <FormBlock>
               <span>Título</span>
               <Input
