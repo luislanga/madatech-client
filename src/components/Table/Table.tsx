@@ -43,44 +43,46 @@ export const Table = () => {
     return <p>Loading tasks...</p>;
   }
   return (
-    <TableMain>
+    <>
       {isEditTaskModalOpen && (
         <EditTaskModal
           onClose={handleCloseEditTaskModal}
           currentTask={currentTask}
         />
       )}
-      <thead>
-        <tr>
-          <TableHeader>Título</TableHeader>
-          <TableHeader>Descrição</TableHeader>
-          <TableHeader>Status</TableHeader>
-          <TableHeader>Ações</TableHeader>
-        </tr>
-      </thead>
-      <tbody>
-        {tasks.data.map((task: any) => (
-          <TableRow key={task.id}>
-            <TableCell>{task.title}</TableCell>
-            <TableCell>{task.description}</TableCell>
-            <TableCell>{task.status}</TableCell>
-            <ActionsCell>
-              <ActionButton
-                disabled={isDeleteTaskPending}
-                onClick={() => handleOpenEditTaskModal(task)}
-              >
-                <GoPencil />
-              </ActionButton>
-              <ActionButton
-                disabled={isDeleteTaskPending}
-                onClick={() => handleDeleteClick(task.id)}
-              >
-                <FaRegTrashCan />
-              </ActionButton>
-            </ActionsCell>
-          </TableRow>
-        ))}
-      </tbody>
-    </TableMain>
+      <TableMain>
+        <thead>
+          <tr>
+            <TableHeader>Título</TableHeader>
+            <TableHeader>Descrição</TableHeader>
+            <TableHeader>Status</TableHeader>
+            <TableHeader>Ações</TableHeader>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.data.map((task: any) => (
+            <TableRow key={task.id}>
+              <TableCell>{task.title}</TableCell>
+              <TableCell>{task.description}</TableCell>
+              <TableCell>{task.status}</TableCell>
+              <ActionsCell>
+                <ActionButton
+                  disabled={isDeleteTaskPending}
+                  onClick={() => handleOpenEditTaskModal(task)}
+                >
+                  <GoPencil />
+                </ActionButton>
+                <ActionButton
+                  disabled={isDeleteTaskPending}
+                  onClick={() => handleDeleteClick(task.id)}
+                >
+                  <FaRegTrashCan />
+                </ActionButton>
+              </ActionsCell>
+            </TableRow>
+          ))}
+        </tbody>
+      </TableMain>
+    </>
   );
 };
